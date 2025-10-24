@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Happy Birthday 💉</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #ffe6f0, #fff0f5);
+    overflow: hidden;
+    font-family: "Sarabun", sans-serif;
+    text-align: center;
+    color: #ff4d6d;
+  }
+
+  h1 {
+    margin-top: 60px;
+    font-size: 2.4em;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  p {
+    font-size: 1.3em;
+    color: #333;
+    opacity: 0;
+    animation: textFade 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes textFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* หัวใจเต้น */
+  .heart {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    margin: 40px auto;
+    transform: rotate(-45deg);
+    animation: heartbeat 1s infinite;
+  }
+
+  
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.2) rotate(-45deg); }
+  }
+
+  
+ button {
+    background-color: #ffb3c6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button {
+  position: relative;
+  z-index: 10; /* ✅ ให้ปุ่มอยู่ด้านบนสุด */
+  pointer-events: auto; /* ✅ ให้สามารถคลิกได้ */
+}
+
+.circle {
+  z-index: 1; /* ให้พื้นหลังอยู่ด้านล่าง */
+}
+
+  
+  
+  
+  
+  
+  button:hover {
+    background-color: #ff4d6d;
+  }
+
+  /* บอลลูนลอย */
+  .balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 60px;
+    height: 80px;
+    border-radius: 50%;
+    animation: float 10s infinite ease-in;
+    opacity: 0.8;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 0.9; }
+    100% { transform: translateY(-800px) scale(1.2); opacity: 0; }
+  }
+
+  /* เอฟเฟกต์ข้อความทีละบรรทัด */
+  .line {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeLine 1s forwards;
+  }
+  @keyframes fadeLine {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<audio id="bgm" src="happy.mp3" autoplay loop></audio>
+
+<h1>🎂 สุขสันต์วันเกิดนะ 💉</h1>
+<div class="heart"></div>
+
+<div id="message">
+  <p class="line" style="animation-delay: 1s;">ทุกวันเธอเหนื่อยเพื่อคนอื่นมากพอแล้ว 💉</p>
+  <p class="line" style="animation-delay: 2.5s;">วันนี้ขอให้เป็นวันของเธอเองบ้างนะ 🌸</p>
+  <p class="line" style="animation-delay: 4s;">พักหน่อย ยิ้มหน่อย เธอเต็มที่ และเก่งที่สุดแล้ว ❤️</p>
+  <p class="line" style="animation-delay: 5.5s;">ขอให้รอยยิ้มของเธอไม่หายไปจากทุกวันเลย ☀️</p>
+</div>
+
+
+
+
+
+
+
+<button onclick="showSecret()" style="margin-top:40px;">💌 I LUV U 💌</button>
+
+
+<script>
+function showSecret() {
+  alert("สุขสันต์วันเกิดนะครับ 💖\n\nอยากให้วันนี้มีแต่ความสุขแบบที่เธอมอบให้คนอื่นเสมอ\nขอให้พยาบาลคนเก่งคนนี้ได้พักผ่อนเยอะ ๆ\nและมีคนคอยดูแล... เหมือนที่เธอดูแลทุกคนอยู่ทุกวันนะ ❤️\n\n– จากโอ๊ค :)");
+}
+
+// เพิ่มบอลลูนลอย
+function addBalloons() {
+  for (let i = 0; i < 20; i++) {
+    const b = document.createElement("div");
+    b.classList.add("balloon");
+    b.style.left = Math.random() * window.innerWidth + "px";
+    b.style.background = `hsl(${Math.random() * 360}, 70%, 75%)`;
+    b.style.animationDelay = Math.random() * 5 + "s";
+    document.body.appendChild(b);
+  }
+}
+addBalloons();
+</script>
+
+</body>
+</html>
 
